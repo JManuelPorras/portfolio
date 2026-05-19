@@ -37,3 +37,5 @@ next-env.d.ts
 
 # QA / scratch
 scripts/_*.png
+
+.vercel

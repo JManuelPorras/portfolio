@@ -20,7 +20,7 @@ const mono = JetBrains_Mono({
 });
 
 const { identity, about } = content;
-const siteUrl = "https://jmporras.vercel.app";
+const siteUrl = "https://portfolio-rho-one-temibyr9a1.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
