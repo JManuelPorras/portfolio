@@ -1,7 +1,7 @@
 export interface SocialLink {
   label: string;
   href: string;
-  kind: "github" | "linkedin" | "email" | "cv";
+  kind: "github" | "linkedin" | "email" | "whatsapp" | "cv";
 }
 
 export interface SiteIdentity {
@@ -11,7 +11,12 @@ export interface SiteIdentity {
   title: string;
   location: string;
   email: string;
+  /** Gmail web compose URL (opens Gmail with this address pre-filled as recipient) */
+  emailCompose: string;
   phone: string;
+  /** Human-readable phone for display */
+  phoneDisplay: string;
+  whatsapp: string;
   github: string;
   linkedin: string;
   cvPath: string;

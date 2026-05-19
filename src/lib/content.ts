@@ -8,7 +8,12 @@ export const content: SiteContent = {
     title: "Software Engineer · AI & Automation",
     location: "Havana, Cuba",
     email: "porrasguerrajosemanuel@gmail.com",
+    emailCompose:
+      "https://mail.google.com/mail/?view=cm&fs=1&to=porrasguerrajosemanuel@gmail.com&su=Hola%20Jose%20Manuel",
     phone: "+53 58783007",
+    phoneDisplay: "+53 5878 3007",
+    whatsapp:
+      "https://wa.me/5358783007?text=Hola%20Jose%20Manuel%2C%20vi%20tu%20portfolio",
     github: "https://github.com/JManuelPorras",
     linkedin:
       "https://www.linkedin.com/in/jose-manuel-porras-guerra-8a3b843bb",
@@ -29,8 +34,13 @@ export const content: SiteContent = {
       kind: "linkedin",
     },
     {
+      label: "WhatsApp",
+      href: "https://wa.me/5358783007?text=Hola%20Jose%20Manuel%2C%20vi%20tu%20portfolio",
+      kind: "whatsapp",
+    },
+    {
       label: "Email",
-      href: "mailto:porrasguerrajosemanuel@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=porrasguerrajosemanuel@gmail.com&su=Hola%20Jose%20Manuel",
       kind: "email",
     },
     { label: "Download CV", href: "/cv/CV-Jose-Manuel-Porras.pdf", kind: "cv" },

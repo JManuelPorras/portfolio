@@ -1,7 +1,7 @@
 import { Mail } from "lucide-react";
 import { content } from "@/lib/content";
 import { Container } from "./ui/Container";
-import { GithubIcon, LinkedinIcon } from "./ui/BrandIcons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./ui/BrandIcons";
 
 export function Footer() {
   const { identity, socials } = content;
@@ -23,12 +23,13 @@ export function Footer() {
                   key={s.kind}
                   href={s.href}
                   aria-label={s.label}
-                  target={s.kind === "email" ? undefined : "_blank"}
+                  target="_blank"
                   rel="noreferrer"
                   className={cls}
                 >
                   {s.kind === "github" && <GithubIcon size={19} />}
                   {s.kind === "linkedin" && <LinkedinIcon size={19} />}
+                  {s.kind === "whatsapp" && <WhatsappIcon size={19} />}
                   {s.kind === "email" && <Mail size={19} />}
                 </a>
               );
