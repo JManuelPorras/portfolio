@@ -9,7 +9,7 @@ export function TechStack() {
       <Container>
         <Reveal>
           <h2 className="font-display text-2xl font-semibold sm:text-3xl">
-            Tech Stack
+            Tech <span className="gradient-text">Stack</span>
           </h2>
         </Reveal>
         <div className="mt-8 space-y-7">
@@ -23,7 +23,7 @@ export function TechStack() {
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-navy/15 px-3 py-1 text-sm text-navy/80 transition-colors hover:border-accent-cyan hover:text-accent-cyan dark:border-white/15 dark:text-slate-300"
+                      className="rounded-full border border-navy/15 px-3 py-1 text-sm text-navy/80 transition-all hover:-translate-y-0.5 hover:border-accent-cyan hover:text-accent-cyan hover:shadow-[0_6px_18px_-8px_rgba(92,200,245,0.6)] dark:border-white/15 dark:text-slate-300"
                     >
                       {item}
                     </span>

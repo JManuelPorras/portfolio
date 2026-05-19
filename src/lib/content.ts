@@ -159,6 +159,7 @@ export const content: SiteContent = {
         "Windows voice assistant on Claude Code: wake word, GPU speech-to-text, intent routing, streaming TTS, and a verbal-confirmation safety hook for dangerous commands.",
       tech: ["Python", "faster-whisper", "Claude Code"],
       repoUrl: "https://github.com/JManuelPorras/hey-jarvis",
+      image: "/projects/hey-jarvis.png",
       featured: true,
     },
     {
@@ -169,6 +170,7 @@ export const content: SiteContent = {
         "100% local push-to-talk dictation for Windows. faster-whisper large-v3 on NVIDIA CUDA, ~1s latency, no cloud. Published MIT with bilingual docs.",
       tech: ["Python", "CUDA", "Whisper"],
       repoUrl: "https://github.com/JManuelPorras/faster-whisper-dictation",
+      image: "/projects/faster-whisper-dictation.png",
       featured: true,
     },
     {
@@ -179,6 +181,7 @@ export const content: SiteContent = {
         "A programming-language interpreter built from scratch in C#: lexer, parser, semantic analysis, AST and a WPF GUI that draws pixel art.",
       tech: ["C#", ".NET", "WPF"],
       repoUrl: "https://github.com/JManuelPorras/wall-e-interpreter",
+      image: "/projects/wall-e-interpreter.png",
       featured: true,
     },
     {
@@ -201,6 +204,7 @@ export const content: SiteContent = {
         "Arcade shooter (Space Invaders style) in Python with Pygame — levels, scoring, high-score tracking, sound.",
       tech: ["Python", "Pygame", "OOP"],
       repoUrl: "https://github.com/JManuelPorras/Alien-Invasion",
+      image: "/projects/Alien-Invasion.png",
       featured: false,
     },
     {
@@ -211,6 +215,7 @@ export const content: SiteContent = {
         "Turn-based maze board game for up to 4 players — an object-oriented design project in C# / .NET 8.",
       tech: ["C#", ".NET 8", "OOP"],
       repoUrl: "https://github.com/JManuelPorras/spanish-citizenship-game",
+      image: "/projects/spanish-citizenship-game.png",
       featured: false,
     },
     {
@@ -221,6 +226,7 @@ export const content: SiteContent = {
         "Automated HTML redirect system serving time-windowed landing-page previews via Cloudflare tunnels.",
       tech: ["HTML", "Cloudflare", "Automation"],
       repoUrl: "https://github.com/JManuelPorras/leads-redirect",
+      image: "/projects/leads-redirect.png",
       featured: false,
     },
   ],

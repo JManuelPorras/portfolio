@@ -11,7 +11,7 @@ export function ProjectCard({
 }) {
   return (
     <article
-      className={`group flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white/40 transition-colors hover:border-accent-cyan/50 dark:border-white/10 dark:bg-white/[0.03] ${
+      className={`card-glow group flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white/50 dark:border-white/10 dark:bg-white/[0.04] ${
         featured ? "" : "h-full"
       }`}
     >
@@ -27,9 +27,13 @@ export function ProjectCard({
             alt={project.title}
             fill
             sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         )}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-1 bg-accent-gradient opacity-80"
+        />
       </div>
       <div className="flex flex-1 flex-col p-6">
         <span className="font-mono text-xs uppercase tracking-widest text-accent-cyan">

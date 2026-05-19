@@ -11,7 +11,8 @@ export function Expertise() {
         <div className="grid gap-8 md:grid-cols-2">
           {expertise.map((col, i) => (
             <Reveal key={col.title} delay={i * 0.1}>
-              <div className="h-full rounded-2xl border border-navy/10 bg-white/40 p-7 dark:border-white/10 dark:bg-white/[0.03]">
+              <div className="card-glow h-full rounded-2xl border border-navy/10 bg-white/50 p-7 dark:border-white/10 dark:bg-white/[0.04]">
+                <div className="mb-5 h-1 w-12 rounded-full bg-accent-gradient" />
                 <h3 className="font-display text-xl font-semibold">
                   {col.title}
                 </h3>

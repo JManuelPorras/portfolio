@@ -9,13 +9,13 @@ export function Experience() {
       <Container>
         <Reveal>
           <h2 className="font-display text-2xl font-semibold sm:text-3xl">
-            Experience
+            Experi<span className="gradient-text">ence</span>
           </h2>
         </Reveal>
         <div className="mt-10 space-y-10">
           {experience.map((job, i) => (
             <Reveal key={job.org} delay={i * 0.08}>
-              <article className="border-l-2 border-accent-cyan/60 pl-6">
+              <article className="relative border-l-2 border-accent-cyan/30 pl-6 before:absolute before:-left-[7px] before:top-1.5 before:h-3 before:w-3 before:rounded-full before:bg-accent-gradient before:shadow-[0_0_12px_2px_rgba(92,200,245,0.5)]">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="font-display text-xl font-semibold">
                     {job.role}{" "}
