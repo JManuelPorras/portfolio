@@ -162,6 +162,18 @@ export const content: SiteContent = {
 
   projects: [
     {
+      slug: "avatar-3d",
+      title: "Avatar 3D",
+      tag: "AI · Voice · 3D",
+      description:
+        "Conversational 3D avatar that answers in my own cloned voice. Spanish voice pipeline on a 6 GB laptop GPU: faster-whisper large-v3 for speech, XTTS-v2 for voice cloning, RAG over my bio, and a cloud LLM with automatic local fallback — plus a Spanish lipsync engine I wrote because the library didn't ship one.",
+      tech: ["Python", "XTTS-v2", "three.js", "CUDA", "WebGL"],
+      repoUrl: "https://github.com/JManuelPorras/avatar-3d",
+      liveUrl: "/avatar",
+      image: "/projects/avatar-3d.webp",
+      featured: true,
+    },
+    {
       slug: "hey-jarvis",
       title: "hey-jarvis",
       tag: "AI · Voice",
@@ -169,7 +181,7 @@ export const content: SiteContent = {
         "Windows voice assistant on Claude Code: wake word, GPU speech-to-text, intent routing, streaming TTS, and a verbal-confirmation safety hook for dangerous commands.",
       tech: ["Python", "faster-whisper", "Claude Code"],
       repoUrl: "https://github.com/JManuelPorras/hey-jarvis",
-      image: "/projects/hey-jarvis.png",
+      image: "/projects/hey-jarvis.webp",
       featured: true,
     },
     {
@@ -180,7 +192,7 @@ export const content: SiteContent = {
         "100% local push-to-talk dictation for Windows. faster-whisper large-v3 on NVIDIA CUDA, ~1s latency, no cloud. Published MIT with bilingual docs.",
       tech: ["Python", "CUDA", "Whisper"],
       repoUrl: "https://github.com/JManuelPorras/faster-whisper-dictation",
-      image: "/projects/faster-whisper-dictation.png",
+      image: "/projects/faster-whisper-dictation.webp",
       featured: true,
     },
     {
@@ -191,7 +203,7 @@ export const content: SiteContent = {
         "A programming-language interpreter built from scratch in C#: lexer, parser, semantic analysis, AST and a WPF GUI that draws pixel art.",
       tech: ["C#", ".NET", "WPF"],
       repoUrl: "https://github.com/JManuelPorras/wall-e-interpreter",
-      image: "/projects/wall-e-interpreter.png",
+      image: "/projects/wall-e-interpreter.webp",
       featured: true,
     },
     {
@@ -203,7 +215,7 @@ export const content: SiteContent = {
       tech: ["HTML5", "Tailwind", "JavaScript"],
       repoUrl: "https://github.com/JManuelPorras/Sitio-web-Azucararte",
       liveUrl: "https://sitio-web-azucararte.vercel.app",
-      image: "/projects/azucararte.png",
+      image: "/projects/azucararte.webp",
       featured: true,
     },
     {
@@ -214,7 +226,7 @@ export const content: SiteContent = {
         "Arcade shooter (Space Invaders style) in Python with Pygame — levels, scoring, high-score tracking, sound.",
       tech: ["Python", "Pygame", "OOP"],
       repoUrl: "https://github.com/JManuelPorras/Alien-Invasion",
-      image: "/projects/Alien-Invasion.png",
+      image: "/projects/Alien-Invasion.webp",
       featured: false,
     },
     {
@@ -225,7 +237,7 @@ export const content: SiteContent = {
         "Turn-based maze board game for up to 4 players — an object-oriented design project in C# / .NET 8.",
       tech: ["C#", ".NET 8", "OOP"],
       repoUrl: "https://github.com/JManuelPorras/spanish-citizenship-game",
-      image: "/projects/spanish-citizenship-game.png",
+      image: "/projects/spanish-citizenship-game.webp",
       featured: false,
     },
     {
@@ -236,7 +248,7 @@ export const content: SiteContent = {
         "Automated HTML redirect system serving time-windowed landing-page previews via Cloudflare tunnels.",
       tech: ["HTML", "Cloudflare", "Automation"],
       repoUrl: "https://github.com/JManuelPorras/leads-redirect",
-      image: "/projects/leads-redirect.png",
+      image: "/projects/leads-redirect.webp",
       featured: false,
     },
   ],

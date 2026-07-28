@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/types";
 
@@ -68,20 +69,34 @@ export function ProjectCard({
               className="text-accent-cyan transition-transform group-hover/link:translate-x-1"
             />
           </a>
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group/live inline-flex items-center gap-1.5 text-sm font-medium text-accent-violet"
-            >
-              LIVE
-              <ArrowUpRight
-                size={15}
-                className="transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5"
-              />
-            </a>
-          )}
+          {project.liveUrl &&
+            // Una ruta interna (p.ej. /avatar) no tiene por qué abrir pestaña nueva ni
+            // pagar una navegación completa: va por next/link.
+            (project.liveUrl.startsWith("/") ? (
+              <Link
+                href={project.liveUrl}
+                className="group/live inline-flex items-center gap-1.5 text-sm font-medium text-accent-violet"
+              >
+                LIVE
+                <ArrowUpRight
+                  size={15}
+                  className="transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5"
+                />
+              </Link>
+            ) : (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group/live inline-flex items-center gap-1.5 text-sm font-medium text-accent-violet"
+              >
+                LIVE
+                <ArrowUpRight
+                  size={15}
+                  className="transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5"
+                />
+              </a>
+            ))}
         </div>
       </div>
     </article>

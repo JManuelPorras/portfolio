@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, AudioLines } from "lucide-react";
 import { content } from "@/lib/content";
 import { Container } from "./ui/Container";
 import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./ui/BrandIcons";
@@ -95,8 +96,16 @@ export function Hero() {
           </div>
         </div>
 
+        {/* El retrato ya era "su cara" en la página, así que es el sitio natural del
+            avatar — pero montar WebGL aquí arruinaría el LCP. En su lugar el marco se
+            convierte en portal: sigue siendo la misma imagen priority, y solo suma un
+            enlace. Coste añadido: cero bytes. */}
         <div className="animate-fade-up justify-self-center md:justify-self-end">
-          <div className="relative h-64 w-64 sm:h-72 sm:w-72">
+          <Link
+            href="/avatar"
+            aria-label="Talk to my AI avatar"
+            className="group/portal relative block h-64 w-64 rounded-[1.75rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-cyan sm:h-72 sm:w-72"
+          >
             <div
               aria-hidden
               className="animate-spin-slow absolute -inset-3 rounded-[2rem] opacity-70 blur-[6px]"
@@ -115,14 +124,18 @@ export function Hero() {
                 fill
                 priority
                 sizes="(min-width:640px) 288px, 256px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover/portal:scale-[1.04]"
               />
               <div
                 aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-ink-0/45 via-transparent to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-ink-0/70 via-transparent to-transparent"
               />
+              <span className="absolute bottom-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-ink-0/60 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors group-hover/portal:border-accent-cyan/60 group-hover/portal:text-accent-cyan">
+                <AudioLines size={16} />
+                Talk to me
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </Container>
     </section>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avatar canvas</title>
+<!--
+  Solo el canvas WebGL. Toda la UI (preguntas, transcripción, karaoke) vive en la página
+  React que lo embebe; aquí no hay estilo de marca a propósito.
+
+  Se sirve como estático y no como componente React por una razón concreta: la copia
+  vendorizada de talkinghead.mjs lleva un parche (meshopt, ver vendor/PATCHES.md) y así el
+  bundler no interviene en absoluto. Efecto secundario útil: este archivo se puede abrir
+  suelto en el navegador para depurar el 3D sin compilar Next.
+    ?selftest=1  -> carga y habla una frase de prueba sin necesitar página padre
+-->
+<style>
+  /* Fondo sólido, no transparente. El renderer de TalkingHead usa alpha:true, pero la
+     transparencia de un iframe depende del documento incrustado y por defecto el navegador
+     pinta blanco debajo. Fijarlo aquí evita esa fragilidad y hace que el póster (que se
+     captura sobre este mismo fondo) y el canvas en vivo coincidan exactamente: al
+     activarse, la imagen se funde sin salto de color.
+     #0B1A2D es ink-0, el inicio del brand-gradient del portafolio. */
+  :root { color-scheme: dark; }
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #0B1A2D; }
+  #avatar { width: 100%; height: 100%; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+  <div id="avatar"></div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js",
+      "three/addons/": "./vendor/three/addons/",
+      "talkinghead": "./vendor/talkinghead/talkinghead.mjs"
+    }
+  }
+  </script>
+  <script type="module" src="./embed.js"></script>
+</body>
+</html>
