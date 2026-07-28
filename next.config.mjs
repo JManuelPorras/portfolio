@@ -21,7 +21,12 @@ const nextConfig = {
         //
         // Immutable es seguro porque el nombre lleva versión: al cambiar el modelo se sube
         // a josed.v2.glb y la referencia en AvatarStage.tsx con él.
-        source: "/avatar/:file(josed\\.v\\d+\\.glb)",
+        // Ruta literal a propósito. Con un patrón regex (`:file(josed\\.v\\d+\\.glb)`)
+        // esta regla NO casaba y ganaba la genérica de abajo: el GLB salía con
+        // max-age=3600 en vez de immutable. Verificado en producción con curl -I.
+        // Al cambiar el modelo se sube a josed.v2.glb y se actualizan las DOS
+        // referencias: esta y la de AvatarStage.tsx.
+        source: "/avatar/josed.v1.glb",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       {
