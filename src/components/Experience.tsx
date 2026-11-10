@@ -1,6 +1,7 @@
 import { content } from "@/lib/content";
 import { Container } from "./ui/Container";
 import { Reveal } from "./ui/Reveal";
+import { ScrollLine } from "./ui/Motion";
 
 export function Experience() {
   const { experience } = content;
@@ -12,10 +13,10 @@ export function Experience() {
             Experi<span className="gradient-text">ence</span>
           </h2>
         </Reveal>
-        <div className="mt-10 space-y-10">
+        <ScrollLine className="mt-10">
           {experience.map((job, i) => (
             <Reveal key={job.org} delay={i * 0.08}>
-              <article className="relative border-l-2 border-accent-cyan/30 pl-6 before:absolute before:-left-[7px] before:top-1.5 before:h-3 before:w-3 before:rounded-full before:bg-accent-gradient before:shadow-[0_0_12px_2px_rgba(92,200,245,0.5)]">
+              <article className="relative pl-7 before:absolute before:-left-[5px] before:top-1.5 before:h-3 before:w-3 before:rounded-full before:bg-accent-gradient before:shadow-[0_0_12px_2px_rgba(92,200,245,0.5)]">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="font-display text-xl font-semibold">
                     {job.role}{" "}
@@ -44,7 +45,7 @@ export function Experience() {
               </article>
             </Reveal>
           ))}
-        </div>
+        </ScrollLine>
       </Container>
     </section>
   );

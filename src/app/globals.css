@@ -131,3 +131,185 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ───────── Capa de movimiento e interacción ───────── */
+
+/* Titular que entra palabra a palabra */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  filter: blur(10px);
+  animation: word-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes word-in {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Punto "en vivo" */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  animation: live-pulse 2.4s infinite;
+}
+@keyframes live-pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgba(74, 222, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+/* Brillo y filo de luz que siguen al puntero (posición en --mx/--my, ver PointerGlow) */
+.card-glow,
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.card-glow::after,
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(92, 200, 245, 0.16),
+    rgba(124, 109, 242, 0.07) 35%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.card-glow::before,
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(92, 200, 245, 0.9),
+    rgba(124, 109, 242, 0.5) 40%,
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.card-glow:hover::after,
+.card-glow:hover::before,
+.spotlight:hover::after,
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Cristal */
+.glass {
+  background: rgba(255, 255, 255, 0.62);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 14px 40px -18px rgba(31, 58, 95, 0.35);
+}
+.dark .glass {
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.03) 55%,
+    rgba(255, 255, 255, 0.06)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 20px 50px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Cinta del stack */
+.marquee {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-track span {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+  line-height: 1.2;
+  white-space: nowrap;
+  color: rgba(31, 58, 95, 0.75);
+}
+.dark .marquee-track span {
+  color: rgba(241, 245, 249, 0.85);
+}
+.marquee-track .marquee-outline,
+.dark .marquee-track .marquee-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(92, 200, 245, 0.8);
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Grano sutil sobre todo el fondo */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
